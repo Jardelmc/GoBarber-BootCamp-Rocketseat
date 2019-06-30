@@ -22,6 +22,7 @@ routes.put('/users', UserController.update);
 
 routes.get('/providers', ProviderController.index);
 
+routes.get('/appointments', AppointmentController.index);
 routes.post('/appointments', AppointmentController.store);
 
 // upload.single('file') Quero dizer que o upload é de apenas um arquivo, e file é o nome que vai tá na requisição multPartFormData
