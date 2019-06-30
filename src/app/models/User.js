@@ -23,6 +23,12 @@ class User extends Model {
     return this;
   }
 
+  // Método para criar relacionamento entre usuário e o avatar
+  // Este método é chamado dentro de index.js na pasta database
+  static associate(models) {
+    this.belongsTo(models.File, { foreignKey: 'avatar_id' });
+  }
+
   checkPassword(password) {
     return bcrypt.compare(password, this.password_hash); // Return true ou false
   }
