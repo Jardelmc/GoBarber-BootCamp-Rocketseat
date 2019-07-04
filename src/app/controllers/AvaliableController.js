@@ -56,7 +56,7 @@ class AvaliableController {
         value: format(value, "yyyy-MM-dd'T'HH:mm:ssxxx"), // Representação do timestamps
         avaliable:
           isAfter(value, new Date()) &&
-          !appointments.find(a => format(a.date, 'HH:mm') === time),
+          !appointments.find(a => format(a.date, 'HH:mm') === time), // Vendo se o horário já passou e se ele não está presente nos horários marcados
       };
     });
 
