@@ -2,6 +2,7 @@ import 'dotenv/config'; // Para carregar as variáveis ambiente. Cria variável 
 
 import express from 'express';
 import path from 'path';
+import cors from 'cors';
 import Youch from 'youch';
 import * as Sentry from '@sentry/node'; // Ferramenta para captura de erros
 import 'express-async-errors'; // Precisa ser importado antes do routes
@@ -23,6 +24,7 @@ class App {
 
   middlewares() {
     this.server.use(Sentry.Handlers.requestHandler()); // Para captura de erros
+    this.server.unsubscribe(cors());
     this.server.use(express.json());
     this.server.use(
       '/files',
